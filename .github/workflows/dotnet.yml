@@ -27,6 +27,7 @@ jobs:
       shell: pwsh
 
     - name: GitVersion action
+      id: gitversion
       # You may pin to the exact commit or the version.
       # uses: nmcc/actions-gitversion@4ab384d333506ede37c82ca3e03f4005b18b7573
       uses: nmcc/actions-gitversion@v1
@@ -37,7 +38,7 @@ jobs:
     - name: Version - Modify version number
       uses: mingjun97/file-regex-replace@v1
       env:
-           version-number: ${{ env.majorVersion }}.${{ env.minorVersion }}.${{ github.run_number }}.0
+           version-number: ${{ steps.gitversion.outputs.SemVer }}.0
       with:
         regex: '<Version>[[0-9]+(\.([0-9]+|\*)){1,3}'
         replacement: '<Version>${{ env.version-number}}'
