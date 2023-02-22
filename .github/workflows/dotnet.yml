@@ -22,7 +22,8 @@ jobs:
     
     - run: nuget install GitVersion.Commandline -version ${{ env.GitVersionVersion }}
     - run: get-childitem -recurse
-      
+      shell: pwsh
+
     - name: GitVersion action
       # You may pin to the exact commit or the version.
       # uses: nmcc/actions-gitversion@4ab384d333506ede37c82ca3e03f4005b18b7573
