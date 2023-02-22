@@ -28,7 +28,7 @@ jobs:
       uses: nmcc/actions-gitversion@v1
       with:
         # Path to the gitversion executable
-        path-to-gitversion: GitVersion.CommandLine.{{ env.GitVersionVersion }}/tools/GitVersion.exe
+        path-to-gitversion: GitVersion.CommandLine.${{ env.GitVersionVersion }}/tools/GitVersion.exe
     
   
     - name: Version - Modify version number
